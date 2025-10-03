@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Burguer - Menú Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #FFAE68;
+            --accent: #2EC4B6;
+            --dark: #1A1A1B;
+            --light: #F8F9FA;
+            --success: #06D6A0;
+            --border-radius: 15px;
+            --box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .logo {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 1rem auto;
+            box-shadow: var(--box-shadow);
+            border: 4px solid white;
+        }
+        .cta-button {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 174, 104, 0.4);
+        }
+        /* NAVEGACIÓN */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--secondary);
+        }
+        .nav-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        /* SECCIÓN BANNER DE NOTICIA (ARRIBA DE DESTACADOS) */
+        .news-banner {
+            background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .news-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        .news-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .news-banner img {
+            width: 100%;
+            max-width: 500px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin: 1rem auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        /* SECCIONES */
+        .menu-section {
+            padding: 3rem 1rem;
+            background: var(--light);
+        }
+        .menu-section:nth-child(even) {
+            background: white;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+            justify-content: center;
+            text-align: center;
+        }
+        .section-description {
+            color: #666;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* GRID DE PRODUCTOS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+        .add-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+        .add-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        /* COMBOS */
+        .combo-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffefe0 100%);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 3px solid var(--secondary);
+        }
+        .combo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .combo-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        .combo-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .combo-name {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 800;
+        }
+        .combo-includes {
+            margin-bottom: 1.5rem;
+        }
+        .combo-includes li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .combo-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 800;
+        }
+        /* EXTRAS */
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .extra-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .extra-item:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary);
+        }
+        .extra-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .extra-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .extra-price {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        /* CARRITO */
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: bold;
+            z-index: 1000;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+        }
+        #cart:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.6);
+        }
+        #cart-count {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .cart-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cart-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .cart-modal.active .cart-content {
+            transform: translateY(0);
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+        .cart-header h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: var(--transition);
+        }
+        .close-cart:hover {
+            color: var(--primary);
+        }
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        .cart-item:hover {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .item-info h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        .item-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .quantity-btn {
+            background: var(--light);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        .remove-btn:hover {
+            color: var(--primary-dark);
+            transform: scale(1.2);
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 1rem 0;
+            border-top: 2px solid #eee;
+            color: var(--primary);
+        }
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .cart-btn {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        .continue-btn {
+            background: var(--light);
+            color: var(--dark);
+        }
+        .continue-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        .checkout-btn {
+            background: var(--success);
+            color: white;
+        }
+        .checkout-btn:hover {
+            background: #05c891;
+            transform: translateY(-2px);
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1); /* HACE QUE EL LOGO BLANCO SE VEAMUY BIEN SOBRE FONDO OSCURO */
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .combo-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .cart-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            .cart-actions {
+                flex-direction: column;
+            }
+            .extras-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <img src="https://i.ibb.co/yFJphNJ1/logo-punto-burguer.png" alt="Punto Burguer" class="logo">
+            <p class="slogan">¡Las mejores hamburguesas y pizzas! 🍔🍕</p>
+            <img 
+                src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2060&q=80" 
+                alt="Hero" 
+                class="hero-image"
+                loading="lazy"
+                onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+            >
+            <button class="cta-button" onclick="scrollToSection('featured', event)">
+                <i class="fas fa-utensils"></i> Ver Menú Completo
+            </button>
+        </header>
+
+        <!-- NAVEGACIÓN -->
+        <nav>
+            <button class="nav-btn active" onclick="scrollToSection('featured', event)"><i class="fas fa-fire"></i> Destacados</button>
+            <button class="nav-btn" onclick="scrollToSection('burgers', event)"><i class="fas fa-hamburger"></i> Hamburguesas</button>
+            <button class="nav-btn" onclick="scrollToSection('pizzas', event)"><i class="fas fa-pizza-slice"></i> Pizzas</button>
+            <button class="nav-btn" onclick="scrollToSection('hotdogs', event)"><i class="fas fa-hotdog"></i> Perros</button>
+            <button class="nav-btn" onclick="scrollToSection('combos', event)"><i class="fas fa-star"></i> Combos</button>
+            <button class="nav-btn" onclick="scrollToSection('sides', event)"><i class="fas fa-utensils"></i> Acompañamientos</button>
+            <button class="nav-btn" onclick="scrollToSection('drinks', event)"><i class="fas fa-wine-bottle"></i> Bebidas</button>
+            <button class="nav-btn" onclick="scrollToSection('extras', event)"><i class="fas fa-plus"></i> Extras</button>
+        </nav>
+
+        <!-- BANNER DE NOTICIA (ENCIMA DE LOS MÁS PEDIDOS) -->
+        <section class="news-banner">
+            <h2>🔥 ¡NUEVO MENÚ DISPONIBLE!</h2>
+            <p>¡No te pierdas nuestras nuevas creaciones y ofertas especiales esta semana!</p>
+            <img 
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                alt="Nueva Hamburguesa" 
+                loading="lazy"
+                onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+            >
+        </section>
+
+        <!-- SECCIÓN DESTACADOS -->
+        <section id="featured" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-fire"></i> 🏆 Los Más Pedidos</h2>
+            <p class="section-description">Nuestras especialidades más populares entre los clientes</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Más Vendido</div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Burguer Especial" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Burguer Especial</h3>
+                        <p class="product-description">Doble carne angus, queso cheddar, bacon crocante, lechuga fresca y salsa especial</p>
+                        <div class="product-footer">
+                            <div class="product-price">$22.000</div>
+                            <button class="add-btn" onclick="addToCart('Burguer Especial', 22000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">Recomendado</div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Pizza Supreme" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Pizza Supreme</h3>
+                        <p class="product-description">Pepperoni, champiñones, pimentón, cebolla, aceitunas y doble queso mozzarella</p>
+                        <div class="product-footer">
+                            <div class="product-price">$35.000</div>
+                            <button class="add-btn" onclick="addToCart('Pizza Supreme', 35000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1551984434-a3d9f5a1de80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Hot Dog Monster" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Hot Dog Monster</h3>
+                        <p class="product-description">Doble salchicha premium, tocineta crujiente, queso cheddar, cebolla caramelizada</p>
+                        <div class="product-footer">
+                            <div class="product-price">$15.000</div>
+                            <button class="add-btn" onclick="addToCart('Hot Dog Monster', 15000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HAMBURGUESAS -->
+        <section id="burgers" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-hamburger"></i> 🍔 Hamburguesas</h2>
+            <p class="section-description">Elaboradas con carne 100% premium y ingredientes frescos seleccionados</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Clásica" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Clásica</h3>
+                        <p class="product-description">Carne angus, queso americano, lechuga fresca, tomate, cebolla y salsas de la casa</p>
+                        <div class="product-footer">
+                            <div class="product-price">$15.000</div>
+                            <button class="add-btn" onclick="addToCart('Hamburguesa Clásica', 15000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1606756790138-7687f01a22f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Doble Queso" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Doble Queso</h3>
+                        <p class="product-description">Doble carne angus, doble queso cheddar, tocineta premium y salsa especial</p>
+                        <div class="product-footer">
+                            <div class="product-price">$20.000</div>
+                            <button class="add-btn" onclick="addToCart('Hamburguesa Doble Queso', 20000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1617196036554-8f973ed6aa95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="BBQ" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">BBQ</h3>
+                        <p class="product-description">Carne angus, salsa BBQ artesanal, cebolla caramelizada, aros de cebolla crujientes</p>
+                        <div class="product-footer">
+                            <div class="product-price">$18.000</div>
+                            <button class="add-btn" onclick="addToCart('Hamburguesa BBQ', 18000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIZZAS -->
+        <section id="pizzas" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-pizza-slice"></i> 🍕 Pizzas</h2>
+            <p class="section-description">Pizzas artesanales con masa fresca e ingredientes premium de la más alta calidad</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Más Pedida</div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1601924582971-bd63e94f9b6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80" 
+                        alt="Pepperoni" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Pepperoni</h3>
+                        <p class="product-description">Masa artesanal, queso mozzarella premium y pepperoni italiano de alta calidad</p>
+                        <div class="product-footer">
+                            <div class="product-price">$28.000</div>
+                            <button class="add-btn" onclick="addToCart('Pizza Pepperoni', 28000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1600628422018-90a4e1d1a6ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Vegetariana" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Vegetariana</h3>
+                        <p class="product-description">Verduras frescas, champiñones seleccionados, aceitunas y especias italianas</p>
+                        <div class="product-footer">
+                            <div class="product-price">$26.000</div>
+                            <button class="add-btn" onclick="addToCart('Pizza Vegetariana', 26000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1604382354936-07c5f8a867ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Hawaiana" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Hawaiana</h3>
+                        <p class="product-description">Jamón premium, piña natural, queso mozzarella y salsa de tomate casera</p>
+                        <div class="product-footer">
+                            <div class="product-price">$27.000</div>
+                            <button class="add-btn" onclick="addToCart('Pizza Hawaiana', 27000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERROS CALIENTES -->
+        <section id="hotdogs" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-hotdog"></i> 🌭 Perros Calientes</h2>
+            <p class="section-description">Los auténticos perros calientes con los mejores ingredientes y salsas caseras</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Clásico" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Clásico</h3>
+                        <p class="product-description">Salchicha premium, salsa de tomate, mostaza, papas chips y queso rallado</p>
+                        <div class="product-footer">
+                            <div class="product-price">$10.000</div>
+                            <button class="add-btn" onclick="addToCart('Perro Clásico', 10000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">Especial</div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1551984434-a3d9f5a1de80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Especial" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Especial</h3>
+                        <p class="product-description">Doble salchicha, piña, salsa de ajo, queso fundido y tocineta crujiente</p>
+                        <div class="product-footer">
+                            <div class="product-price">$15.000</div>
+                            <button class="add-btn" onclick="addToCart('Perro Especial', 15000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1630509323093-c8621548a2a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Ranchero" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Ranchero</h3>
+                        <p class="product-description">Salchicha, chorizo artesanal, maíz dulce, salsa ranchera y guacamole fresco</p>
+                        <div class="product-footer">
+                            <div class="product-price">$16.000</div>
+                            <button class="add-btn" onclick="addToCart('Perro Ranchero', 16000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMBOS -->
+        <section id="combos" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-star"></i> 🎁 Combos Especiales</h2>
+            <p class="section-description">Aprovecha nuestros combos con descuentos especiales y ahorra en tu pedido</p>
+            <div class="combo-section">
+                <div class="combo-grid">
+                    <div class="combo-card">
+                        <h3 class="combo-name">Combo Burger</h3>
+                        <ul class="combo-includes">
+                            <li><i class="fas fa-hamburger"></i> Hamburguesa Clásica</li>
+                            <li><i class="fas fa-french-fries"></i> Papas Fritas Medianas</li>
+                            <li><i class="fas fa-wine-bottle"></i> Gaseosa 400ml</li>
+                        </ul>
+                        <div class="combo-price">$18.000</div>
+                        <button class="add-btn" onclick="addComboToCart('Combo Burger', 18000, ['Hamburguesa Clásica', 'Papas Fritas Medianas', 'Gaseosa 400ml'])">
+                            <i class="fas fa-cart-plus"></i> Agregar Combo
+                        </button>
+                    </div>
+                    <div class="combo-card">
+                        <h3 class="combo-name">Combo Perro</h3>
+                        <ul class="combo-includes">
+                            <li><i class="fas fa-hotdog"></i> Perro Especial</li>
+                            <li><i class="fas fa-french-fries"></i> Papas Fritas</li>
+                            <li><i class="fas fa-wine-bottle"></i> Gaseosa 400ml</li>
+                        </ul>
+                        <div class="combo-price">$16.000</div>
+                        <button class="add-btn" onclick="addComboToCart('Combo Perro', 16000, ['Perro Especial', 'Papas Fritas', 'Gaseosa 400ml'])">
+                            <i class="fas fa-cart-plus"></i> Agregar Combo
+                        </button>
+                    </div>
+                    <div class="combo-card">
+                        <h3 class="combo-name">Combo Familiar</h3>
+                        <ul class="combo-includes">
+                            <li><i class="fas fa-pizza-slice"></i> Pizza Mediana</li>
+                            <li><i class="fas fa-hamburger"></i> 2 Hamburguesas Clásicas</li>
+                            <li><i class="fas fa-french-fries"></i> Papas Grandes</li>
+                            <li><i class="fas fa-wine-bottle"></i> 2 Gaseosas 400ml</li>
+                        </ul>
+                        <div class="combo-price">$45.000</div>
+                        <button class="add-btn" onclick="addComboToCart('Combo Familiar', 45000, ['Pizza Mediana', '2 Hamburguesas Clásicas', 'Papas Grandes', '2 Gaseosas 400ml'])">
+                            <i class="fas fa-cart-plus"></i> Agregar Combo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACOMPAÑAMIENTOS -->
+        <section id="sides" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-utensils"></i> 🍟 Acompañamientos</h2>
+            <p class="section-description">El complemento perfecto para tus comidas favoritas</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Papas Fritas" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Papas Fritas</h3>
+                        <p class="product-description">Crujientes y doradas, con sal marina y especias seleccionadas</p>
+                        <div class="product-footer">
+                            <div class="product-price">$8.000</div>
+                            <button class="add-btn" onclick="addToCart('Papas Fritas', 8000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1637749514910-8f2f993259a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                        alt="Salchipapas" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Salchipapas</h3>
+                        <p class="product-description">Papas fritas con salchichas premium y salsas de la casa</p>
+                        <div class="product-footer">
+                            <div class="product-price">$12.000</div>
+                            <button class="add-btn" onclick="addToCart('Salchipapas', 12000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1626700051175-6818013e4e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Aros de Cebolla" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Aros de Cebolla</h3>
+                        <p class="product-description">Crujientes y deliciosos, acompañados con salsa BBQ artesanal</p>
+                        <div class="product-footer">
+                            <div class="product-price">$9.000</div>
+                            <button class="add-btn" onclick="addToCart('Aros de Cebolla', 9000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEBIDAS -->
+        <section id="drinks" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-wine-bottle"></i> 🥤 Bebidas</h2>
+            <p class="section-description">Refrescantes bebidas para acompañar tus comidas favoritas</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1621268983886-54f5a8bb28be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Gaseosa" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Gaseosa</h3>
+                        <p class="product-description">Botella 400ml (Coca-Cola, Pepsi, Sprite, Fanta, Seven Up)</p>
+                        <div class="product-footer">
+                            <div class="product-price">$5.000</div>
+                            <button class="add-btn" onclick="addToCart('Gaseosa', 5000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1622481326927-2a0a57f47658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Jugo Natural" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Jugo Natural</h3>
+                        <p class="product-description">Jugo fresco natural de naranja, lulo, maracuyá o mango (500ml)</p>
+                        <div class="product-footer">
+                            <div class="product-price">$7.000</div>
+                            <button class="add-btn" onclick="addToCart('Jugo Natural', 7000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img 
+                        src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Malteada" 
+                        class="product-image"
+                        loading="lazy"
+                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
+                    >
+                    <div class="product-info">
+                        <h3 class="product-name">Malteada</h3>
+                        <p class="product-description">Malteada cremosa de chocolate, vainilla o fresa (400ml)</p>
+                        <div class="product-footer">
+                            <div class="product-price">$10.000</div>
+                            <button class="add-btn" onclick="addToCart('Malteada', 10000)">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXTRAS -->
+        <section id="extras" class="menu-section">
+            <h2 class="section-title"><i class="fas fa-plus-circle"></i> ➕ Extras y Adicionales</h2>
+            <p class="section-description">Personaliza tu pedido con estos deliciosos extras</p>
+            <div class="extras-grid">
+                <div class="extra-item" onclick="addToCart('Extra Queso', 2000)">
+                    <div class="extra-icon">🧀</div>
+                    <div class="extra-name">Extra Queso</div>
+                    <div class="extra-price">$2.000</div>
+                </div>
+                <div class="extra-item" onclick="addToCart('Extra Tocineta', 3000)">
+                    <div class="extra-icon">🥓</div>
+                    <div class="extra-name">Extra Tocineta</div>
+                    <div class="extra-price">$3.000</div>
+                </div>
+                <div class="extra-item" onclick="addToCart('Huevo Frito', 2000)">
+                    <div class="extra-icon">🍳</div>
+                    <div class="extra-name">Huevo Frito</div>
+                    <div class="extra-price">$2.000</div>
+                </div>
+                <div class="extra-item" onclick="addToCart('Guacamole', 4000)">
+                    <div class="extra-icon">🥑</div>
+                    <div class="extra-name">Guacamole</div>
+                    <div class="extra-price">$4.000</div>
+                </div>
+                <div class="extra-item" onclick="addToCart('Salsa Extra', 1000)">
+                    <div class="extra-icon">🥫</div>
+                    <div class="extra-name">Salsa Extra</div>
+                    <div class="extra-price">$1.000</div>
+                </div>
+                <div class="extra-item" onclick="addToCart('Papas Extra', 5000)">
+                    <div class="extra-icon">🍟</div>
+                    <div class="extra-name">Papas Extra</div>
+                    <div class="extra-price">$5.000</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARRITO -->
+        <div id="cart" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count">0</span>
+        </div>
+
+        <!-- MODAL CARRITO -->
+        <div class="cart-modal" id="cart-modal">
+            <div class="cart-content">
+                <div class="cart-header">
+                    <h3>Tu Pedido</h3>
+                    <button class="close-cart" onclick="toggleCart()">&times;</button>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Tu carrito está vacío</p>
+                    </div>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="cart-btn continue-btn" onclick="toggleCart()">
+                        <i class="fas fa-arrow-left"></i> Seguir Comprando
+                    </button>
+                    <button class="cart-btn checkout-btn" onclick="checkout()">
+                        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <img src="https://i.ibb.co/yFJphNJ1/logo-punto-burguer.png" alt="Punto Burguer" class="footer-logo">
+                <h3>Punto Burguer</h3>
+                <p>Las mejores hamburguesas y pizzas de la ciudad</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/573208973501" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="contact-info">
+                    <span><i class="fas fa-clock"></i> Abierto: 10:00 AM - 10:00 PM</span>
+                    <span><i class="fas fa-phone"></i> +57 320 897 3501</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Calle 123 #45-67</span>
+                </div>
+                <div class="copyright">
+                    &copy; 2024 Punto Burguer. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let cartItems = [];
+        let cartCount = 0;
+        let cartTotal = 0;
+
+        function scrollToSection(id, event) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            document.querySelectorAll('nav .nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function addToCart(product, price) {
+            const existingItem = cartItems.find(item => item.name === product);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ name: product, price: price, quantity: 1 });
+            }
+            updateCart();
+            showNotification(`${product} agregado al carrito`);
+        }
+
+        function addComboToCart(comboName, price, items) {
+            cartItems.push({
+                name: comboName,
+                price: price,
+                quantity: 1,
+                isCombo: true,
+                items: items
+            });
+            updateCart();
+            showNotification(`Combo ${comboName} agregado al carrito`);
+        }
+
+        function updateCart() {
+            cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+            cartTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('cart-total-price').textContent = formatCurrency(cartTotal);
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = '';
+            if (cartItems.length === 0) {
+                cartItemsElement.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-cart"></i><p>Tu carrito está vacío</p></div>';
+                return;
+            }
+            cartItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        ${item.isCombo ? `<p>Incluye: ${item.items.join(', ')}</p>` : ''}
+                        <p>${formatCurrency(item.price)} c/u</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="quantity-btn" onclick="decreaseQuantity(${index})">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" onclick="increaseQuantity(${index})">+</button>
+                        <button class="remove-btn" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                cartItemsElement.appendChild(itemElement);
+            });
+        }
+
+        function increaseQuantity(index) {
+            cartItems[index].quantity += 1;
+            updateCart();
+        }
+
+        function decreaseQuantity(index) {
+            if (cartItems[index].quantity > 1) {
+                cartItems[index].quantity -= 1;
+            } else {
+                removeFromCart(index);
+            }
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('active');
+        }
+
+        function checkout() {
+            if (cartItems.length === 0) {
+                alert("Tu carrito está vacío. Agrega algunos productos antes de finalizar tu pedido.");
+                return;
+            }
+            let message = "¡Hola! Quiero realizar el siguiente pedido:\n";
+            cartItems.forEach(item => {
+                if (item.isCombo) {
+                    message += `*${item.name}* - ${formatCurrency(item.price)} x ${item.quantity}\n`;
+                    message += `  (Incluye: ${item.items.join(', ')})\n`;
+                } else {
+                    message += `*${item.name}* - ${formatCurrency(item.price)} x ${item.quantity}\n`;
+                }
+            });
+            message += `\n*Total: ${formatCurrency(cartTotal)}*`;
+            message += "\nPor favor, confirmen mi pedido y me informan el tiempo de entrega. ¡Gracias!";
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = "573208973501";
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+            cartItems = [];
+            updateCart();
+            toggleCart();
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(amount);
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed; top: 20px; right: 20px; background: var(--success); color: white;
+                padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 3000; transform: translateX(150%); transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        updateCart();
+    </script>
+</body>
+</html>
