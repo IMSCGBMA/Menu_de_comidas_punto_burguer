@@ -121,6 +121,7 @@
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             border: 2px solid transparent;
+            position: relative;
         }
         .product-card:hover {
             transform: translateY(-5px);
@@ -562,7 +563,6 @@
         <header>
             <img src="https://i.ibb.co/yFJphNJ1/logo-punto-burguer.png" alt="Punto Burguer" class="logo">
             <p class="slogan">¡Las mejores hamburguesas y pizzas! 🍔🍕</p>
-            <!-- BANNER DE HAMBURGUESA ELIMINADO SEGÚN TU PETICIÓN -->
         </header>
 
         <!-- NAVEGACIÓN -->
@@ -579,7 +579,7 @@
 
         <!-- SECCIÓN DESTACADOS -->
         <section id="featured" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-fire"></i> 🏆 Los Más Pedidos</h2>
+            <h2 class="section-title"><i class="fas fa-fire"></i>  Los Más Pedidos</h2>
             <p class="section-description">Nuestras especialidades más populares entre los clientes</p>
             <div class="products-grid">
                 <div class="product-card">
@@ -589,11 +589,10 @@
                         alt="Burguer Especial" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Burguer Especial</h3>
-                        <p class="product-description">Doble carne angus, queso cheddar, bacon crocante, lechuga fresca y salsa especial</p>
+                        <p class="product-description">Doble carne angus, queso cheddar, bacon crujiente, lechuga fresca y salsa especial</p>
                         <div class="product-footer">
                             <div class="product-price">$22.000</div>
                             <button class="add-btn" onclick="addToCart('Burguer Especial', 22000)">
@@ -605,11 +604,10 @@
                 <div class="product-card">
                     <div class="product-badge">Recomendado</div>
                     <img 
-                        src="https://i.ibb.co/pv4Nj5dD/hwaiana.jpg" 
+                        src="https://i.ibb.co/pv4Nj5dD/MARSH.jpg" 
                         alt="Pizza Supreme" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Pizza Supreme</h3>
@@ -628,7 +626,6 @@
                         alt="Hot Dog Monster" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Hot Dog Monster</h3>
@@ -646,7 +643,7 @@
 
         <!-- HAMBURGUESAS -->
         <section id="burgers" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-hamburger"></i> 🍔 Hamburguesas</h2>
+            <h2 class="section-title"><i class="fas fa-hamburger"></i> Hamburguesas</h2>
             <p class="section-description">Elaboradas con carne 100% premium y ingredientes frescos seleccionados</p>
             <div class="products-grid">
                 <div class="product-card">
@@ -655,7 +652,6 @@
                         alt="Clásica" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Clásica</h3>
@@ -674,7 +670,6 @@
                         alt="Doble Queso" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Doble Queso</h3>
@@ -693,7 +688,6 @@
                         alt="BBQ" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">BBQ</h3>
@@ -711,17 +705,16 @@
 
         <!-- PIZZAS -->
         <section id="pizzas" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-pizza-slice"></i> 🍕 Pizzas</h2>
+            <h2 class="section-title"><i class="fas fa-pizza-slice"></i> Pizzas</h2>
             <p class="section-description">Pizzas artesanales con masa fresca e ingredientes premium de la más alta calidad</p>
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-badge">Más Pedida</div>
                     <img 
-                        src="https://i.ibb.co/pv4Nj5dD/hwaiana.jpg" 
+                        src="https://i.ibb.co/pv4Nj5dD/MARSH.jpg" 
                         alt="Pepperoni" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Pepperoni</h3>
@@ -740,7 +733,6 @@
                         alt="Vegetariana" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Vegetariana</h3>
@@ -759,7 +751,6 @@
                         alt="Hawaiana" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Hawaiana</h3>
@@ -777,7 +768,7 @@
 
         <!-- PERROS CALIENTES -->
         <section id="hotdogs" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-hotdog"></i> 🌭 Perros Calientes</h2>
+            <h2 class="section-title"><i class="fas fa-hotdog"></i>  Perros Calientes</h2>
             <p class="section-description">Los auténticos perros calientes con los mejores ingredientes y salsas caseras</p>
             <div class="products-grid">
                 <div class="product-card">
@@ -786,7 +777,6 @@
                         alt="Clásico" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Clásico</h3>
@@ -806,7 +796,6 @@
                         alt="Especial" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Especial</h3>
@@ -825,7 +814,6 @@
                         alt="Ranchero" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Ranchero</h3>
@@ -843,7 +831,7 @@
 
         <!-- COMBOS -->
         <section id="combos" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-star"></i> 🎁 Combos Especiales</h2>
+            <h2 class="section-title"><i class="fas fa-star"></i> Combos Especiales</h2>
             <p class="section-description">Aprovecha nuestros combos con descuentos especiales y ahorra en tu pedido</p>
             <div class="combo-section">
                 <div class="combo-grid">
@@ -890,7 +878,7 @@
 
         <!-- ACOMPAÑAMIENTOS -->
         <section id="sides" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-utensils"></i> 🍟 Acompañamientos</h2>
+            <h2 class="section-title"><i class="fas fa-utensils"></i> Acompañamientos</h2>
             <p class="section-description">El complemento perfecto para tus comidas favoritas</p>
             <div class="products-grid">
                 <div class="product-card">
@@ -899,7 +887,6 @@
                         alt="Papas Fritas" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Papas Fritas</h3>
@@ -918,7 +905,6 @@
                         alt="Salchipapas" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Salchipapas</h3>
@@ -937,7 +923,6 @@
                         alt="Aros de Cebolla" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Aros de Cebolla</h3>
@@ -955,7 +940,7 @@
 
         <!-- BEBIDAS -->
         <section id="drinks" class="menu-section">
-            <h2 class="section-title"><i class="fas fa-wine-bottle"></i> 🥤 Bebidas</h2>
+            <h2 class="section-title"><i class="fas fa-wine-bottle"></i>  Bebidas</h2>
             <p class="section-description">Refrescantes bebidas para acompañar tus comidas favoritas</p>
             <div class="products-grid">
                 <div class="product-card">
@@ -964,7 +949,6 @@
                         alt="Gaseosa" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Gaseosa</h3>
@@ -979,11 +963,10 @@
                 </div>
                 <div class="product-card">
                     <img 
-                        src="https://i.ibb.co/pv4Nj5dD/hwaiana.jpg" 
+                        src="https://i.ibb.co/pv4Nj5dD/MARSH.jpg" 
                         alt="Jugo Natural" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Jugo Natural</h3>
@@ -1002,7 +985,6 @@
                         alt="Malteada" 
                         class="product-image"
                         loading="lazy"
-                        onerror="this.src='https://i.ibb.co/7y0S7fG/placeholder-food.png'; this.onerror=null;"
                     >
                     <div class="product-info">
                         <h3 class="product-name">Malteada</h3>
